@@ -1,0 +1,22 @@
+{
+  "name": "nextjs-sms-webservice",
+  "version": "0.1.0",
+  "description": "Next.js route handlers for the Payam Resan SMS web service",
+  "license": "MIT",
+  "private": true,
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "check": "tsc"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^6.0.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mojeshahr/nextjs-sms-webservice.git"
+  },
+  "homepage": "https://docs.payam-resan.com"
+}
