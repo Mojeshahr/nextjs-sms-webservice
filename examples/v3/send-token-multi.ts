@@ -51,7 +51,7 @@ export async function POST(request: Request) {
 
   // قالب نمونه: «مرسوله شما از {2} تحویل پست شد. بارکد مرسوله پستی: {1}»
   // ترتیب آرایه همان ترتیب شماره جای‌گاه است، نه ترتیب ظاهرش در متن.
-  const answer = await fetch('https://api.sms-webservice.com/api/V3/SendTokenMulti', {
+  const answer = await fetch('https://www.payam-resan.com/api/V3/SendTokenMulti', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json; charset=utf-8' },
     body: JSON.stringify({

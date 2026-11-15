@@ -54,7 +54,7 @@ export async function POST(request: Request) {
     return Response.json({ error: 'شناسه‌ای متعلق به شما نیست' }, { status: 403 });
   }
 
-  const answer = await fetch('https://api.sms-webservice.com/api/V3/StatusById', {
+  const answer = await fetch('https://www.payam-resan.com/api/V3/StatusById', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json; charset=utf-8' },
     body: JSON.stringify({ ApiKey: apiKey, Ids: ids }),

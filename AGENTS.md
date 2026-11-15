@@ -1,7 +1,7 @@
 # Working with this repository
 
 You are looking at Next.js route handlers for the **Payam Resan** SMS web
-service (`api.sms-webservice.com`, API V3), an Iranian SMS provider. Someone is
+service (`www.payam-resan.com`, API V3), an Iranian SMS provider. Someone is
 probably asking you to add SMS to a Next.js application.
 
 The handlers live in `examples/v3/`, one file per service method, named after
@@ -48,7 +48,7 @@ nobody ships on top of the stub by accident. Replace it with the app's real
 session check — NextAuth, Clerk, a signed cookie, anything whose result the
 browser cannot forge.
 
-**They never take the message text from the browser.** In all eleven handlers
+**They never take the message text from the browser.** In all thirteen handlers
 the text is composed on the server. Text arriving in the request body means
 anyone can send anything from the user's sender line.
 

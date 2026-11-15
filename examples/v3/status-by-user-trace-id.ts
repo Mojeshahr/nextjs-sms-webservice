@@ -51,7 +51,7 @@ export async function POST(request: Request) {
   }
 
   const answer = await fetch(
-    'https://api.sms-webservice.com/api/V3/StatusByUserTraceId',
+    'https://www.payam-resan.com/api/V3/StatusByUserTraceId',
     {
       method: 'POST',
       headers: { 'Content-Type': 'application/json; charset=utf-8' },

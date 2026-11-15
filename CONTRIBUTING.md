@@ -48,7 +48,7 @@ is lifted verbatim into the method's page on docs.payam-resan.com.
 
 The layout is the same as every other language repository: `examples/v3/` with
 one file per operation, named after the reference page slug. Do not move them
-into an `app/` tree to make the repository runnable. That costs eleven one-line
+into an `app/` tree to make the repository runnable. That costs thirteen one-line
 re-export files, a Next.js dependency and a build step, all so the repository
 can be something it was never meant to be. The Laravel repository has the same
 tension and the same answer: ship the file, let the reader place it.

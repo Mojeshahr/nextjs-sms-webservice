@@ -35,7 +35,7 @@ export async function GET(request: Request) {
     return Response.json({ error: 'کلید تنظیم نشده است' }, { status: 500 });
   }
 
-  const answer = await fetch('https://api.sms-webservice.com/api/V3/AccountInfo', {
+  const answer = await fetch('https://www.payam-resan.com/api/V3/AccountInfo', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json; charset=utf-8' },
     body: JSON.stringify({ ApiKey: apiKey }),

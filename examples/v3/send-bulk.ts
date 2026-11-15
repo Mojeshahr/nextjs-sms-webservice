@@ -51,7 +51,7 @@ export async function POST(request: Request) {
     return Response.json({ error: 'سفارشی برای ارسال نیست' }, { status: 400 });
   }
 
-  const answer = await fetch('https://api.sms-webservice.com/api/V3/SendBulk', {
+  const answer = await fetch('https://www.payam-resan.com/api/V3/SendBulk', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json; charset=utf-8' },
     body: JSON.stringify({

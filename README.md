@@ -61,6 +61,8 @@ cp lib/session.ts                   ~/my-app/lib/session.ts
 | [token-list.ts](examples/v3/token-list.ts) | `TokenList` | فهرست قالب‌ها |
 | [send-token-single.ts](examples/v3/send-token-single.ts) | `SendTokenSingle` | ارسال قالب به یک شماره |
 | [send-token-single-get.ts](examples/v3/send-token-single-get.ts) | `SendTokenSingle` | همان، با `GET` |
+| [send-token-single-concat-param.ts](examples/v3/send-token-single-concat-param.ts) | `SendTokenSingleConcatParam` | رمز ساخته‌شده روی سرور در رشته `p` |
+| [send-token-single-concat-param-get.ts](examples/v3/send-token-single-concat-param-get.ts) | `SendTokenSingleConcatParam` | همان، با `GET` روی سرویس |
 | [send-token-multi.ts](examples/v3/send-token-multi.ts) | `SendTokenMulti` | یک قالب، چند گیرنده |
 | [status-by-id.ts](examples/v3/status-by-id.ts) | `StatusById` | وضعیت با شناسه سامانه |
 | [status-by-user-trace-id.ts](examples/v3/status-by-user-trace-id.ts) | `StatusByUserTraceId` | وضعیت با شناسه خودتان |
@@ -103,7 +105,7 @@ cp lib/session.ts                   ~/my-app/lib/session.ts
 [`lib/session.ts`](lib/session.ts) عمداً پیاده‌سازی نشده و در حالت production
 استثنا می‌دهد، تا کسی به‌اشتباه با آن منتشر نکند.
 
-**دوم اینکه متن پیام را هرگز از مرورگر نمی‌گیرند.** در هر یازده هندلر متن روی
+**دوم اینکه متن پیام را هرگز از مرورگر نمی‌گیرند.** در هر سیزده هندلر متن روی
 سرور نوشته می‌شود. متنی که از بدنه درخواست بیاید یعنی هر کسی می‌تواند هر چیزی
 را با خط شما بفرستد.
 

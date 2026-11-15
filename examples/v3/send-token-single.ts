@@ -51,7 +51,7 @@ export async function POST(request: Request) {
   // بعداً بتوانید تأییدش کنید.
   const code = String(randomInt(0, 1_000_000)).padStart(6, '0');
 
-  const answer = await fetch('https://api.sms-webservice.com/api/V3/SendTokenSingle', {
+  const answer = await fetch('https://www.payam-resan.com/api/V3/SendTokenSingle', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json; charset=utf-8' },
     body: JSON.stringify({

@@ -53,7 +53,7 @@ export async function POST(request: Request) {
     Recipients: phones.join(','),
   });
 
-  const answer = await fetch(`https://api.sms-webservice.com/api/V3/Send?${query}`, {
+  const answer = await fetch(`https://www.payam-resan.com/api/V3/Send?${query}`, {
     signal: AbortSignal.timeout(30_000),
   });
 

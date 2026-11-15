@@ -60,6 +60,8 @@ there says nothing about whether your key is valid.
 | [token-list.ts](examples/v3/token-list.ts) | `TokenList` | template list and approval status |
 | [send-token-single.ts](examples/v3/send-token-single.ts) | `SendTokenSingle` | template to one number |
 | [send-token-single-get.ts](examples/v3/send-token-single-get.ts) | `SendTokenSingle` | the same, over `GET` |
+| [send-token-single-concat-param.ts](examples/v3/send-token-single-concat-param.ts) | `SendTokenSingleConcatParam` | Server-generated code in the `p` string |
+| [send-token-single-concat-param-get.ts](examples/v3/send-token-single-concat-param-get.ts) | `SendTokenSingleConcatParam` | The same, using upstream `GET` |
 | [send-token-multi.ts](examples/v3/send-token-multi.ts) | `SendTokenMulti` | one template, many recipients |
 | [status-by-id.ts](examples/v3/status-by-id.ts) | `StatusById` | delivery status by system id |
 | [status-by-user-trace-id.ts](examples/v3/status-by-user-trace-id.ts) | `StatusByUserTraceId` | delivery status by your own id |
@@ -99,7 +101,7 @@ The handlers here follow two rules, and both are code rather than commentary:
 [`lib/session.ts`](lib/session.ts) is deliberately unimplemented and throws in
 production, so nobody ships on top of the stub by accident.
 
-**They never take the message text from the browser.** In all eleven handlers
+**They never take the message text from the browser.** In all thirteen handlers
 the text is composed on the server. Text arriving in the request body means
 anyone can send anything from your sender line.
 

@@ -57,7 +57,7 @@ export async function POST(request: Request) {
   });
 
   const answer = await fetch(
-    `https://api.sms-webservice.com/api/V3/SendTokenSingle?${query}`,
+    `https://www.payam-resan.com/api/V3/SendTokenSingle?${query}`,
     { signal: AbortSignal.timeout(30_000) },
   );
 
