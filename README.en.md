@@ -137,8 +137,11 @@ do.
 
 ## Things you will run into
 
-**The service answers `200` to everything**, including a wrong key. Decide from
-the `Success` field. The response envelope in each handler is a discriminated
+**Inspect the HTTP status and the `Success` field.** Normal V3 operations return
+`200`; the GET and POST `SendTokenSingleConcatParam` operations also document
+`429` and `default` responses, which may lack the normal envelope. HTTP success
+alone does not establish API success; inspect `Success` when an envelope is present.
+The response envelope in each handler is a discriminated
 union on `Success`, so removing the check stops the build.
 
 **Recipient numbers carry no leading zero.** Use `9121112222`, or
@@ -152,7 +155,8 @@ before going to the network.
 takes no such input. If you need a trace id, `SendTokenMulti` works for a single
 recipient too.
 
-**The service hands over each incoming message once.** Do not wire the
+**Each `GetInbox` call retrieves the entire current inbox and permanently removes
+the returned messages. A later call cannot retrieve them again.** Do not wire the
 `get-inbox` route to a page: every load consumes unread messages and they do
 not come back. It belongs in a scheduled job that writes the result to your
 own database.

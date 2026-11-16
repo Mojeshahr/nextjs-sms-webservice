@@ -79,10 +79,12 @@ export const dynamic = 'force-dynamic';
 Without `force-dynamic` a `GET` handler can be statically optimised and the
 user gets a cached answer for a live balance.
 
-## Rule 4: `Success`, never the HTTP status
+## Rule 4: inspect the HTTP status and `Success`
 
-The service answers `200` to everything, including a wrong key, an empty account
-and a malformed body. `answer.ok` proves nothing.
+Normal V3 operations return `200`; the GET and POST `SendTokenSingleConcatParam`
+operations also document `429` and `default` responses. A non-2xx response may not
+have the normal envelope. `answer.ok` alone does not establish API success;
+inspect `Success` when an envelope is present.
 
 The envelope is typed as a discriminated union on `Success`, so the compiler
 refuses to let you read `Result` before checking:
@@ -105,6 +107,7 @@ wrong, the upstream did.
 |---|---|---|
 | one text to many people | `SendBulk` | `/api/sms/send-bulk` |
 | a different text per person | `SendMultiple` | `/api/sms/send-multiple` |
+| a template with semicolon parameters | `SendTokenSingleConcatParam` | `/api/sms/send-token-single-concat-param` |
 | a one-time password or code | `SendTokenSingle` | `/api/sms/send-token-single` |
 | a template to many people | `SendTokenMulti` | `/api/sms/send-token-multi` |
 | delivery status | `StatusByUserTraceId` | `/api/sms/status-by-user-trace-id` |
@@ -160,7 +163,8 @@ which is Persian prose meant for humans and can change.
 
 ## Rule 9: `GetInbox` consumes what it returns
 
-The service hands over each incoming message **once**. Never wire
+Each `GetInbox` call retrieves the entire current inbox and permanently removes
+the returned messages. A later call cannot retrieve them again. Never wire
 `/api/sms/get-inbox` to a page: every load consumes unread messages
 permanently. It belongs in a cron job — a Vercel Cron route or a scheduled
 worker — that writes straight to the database.
@@ -179,7 +183,8 @@ misleading "module not found". This repository pins `typescript@^6`.
 ## Testing without spending credit
 
 Replace `V3` with `V3SandBox` in the URL. No message is sent and no credit is
-spent. `TokenList` is not implemented there.
+spent. `TokenList` returns mock templates there; use production for the account's
+real templates.
 
 The sandbox is a simulator, not a mirror of the account: credit is always
 `1234567`, sender lines are invented, and **it accepts any key**. Success there
